@@ -30,7 +30,7 @@ export default function DashboardPage() {
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-2">
           <Image src={logo} height={40} width={40} alt="logo" />
-          <h1 className="text-3xl font-bold">Career Cloud</h1>
+          <h1 className="text-3xl font-bold hidden sm:flex">Career Cloud</h1>
         </div>
 
         <div className="flex items-center gap-4">
