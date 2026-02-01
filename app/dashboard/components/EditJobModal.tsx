@@ -64,7 +64,7 @@ export default function EditJobModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-10">
       <div className="bg-white p-6 rounded w-full max-w-md space-y-3 max-h-[90vh] overflow-y-auto">
         <h2 className="text-xl font-bold">Edit Job</h2>
 

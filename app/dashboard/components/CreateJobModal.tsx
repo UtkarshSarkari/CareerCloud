@@ -53,7 +53,7 @@ export default function CreateJobModal({
       </button>
 
       {open && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-10">
           <div className="bg-white p-6 rounded w-full max-w-md space-y-3">
             <h2 className="text-xl font-bold">Add Job</h2>
 
