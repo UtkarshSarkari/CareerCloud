@@ -10,7 +10,7 @@ export default function DashboardPage() {
 
   const fetchJobs = async () => {
     const res = await fetch("/api/jobs", {
-      credentials: "include", // Important: send cookies with request
+      credentials: "include",
     });
     const data = await res.json();
     setJobs(data.jobs || []);

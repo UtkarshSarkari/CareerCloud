@@ -17,7 +17,6 @@ export default function CreateJobModal({
   });
 
   const handleSubmit = async () => {
-    // Filter out empty optional fields to avoid validation errors
     const payload: any = {
       companyName: form.companyName,
       jobTitle: form.jobTitle,
@@ -37,7 +36,7 @@ export default function CreateJobModal({
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
-      credentials: "include", // Important: send cookies with request
+      credentials: "include", 
     });
 
     setOpen(false);

@@ -15,12 +15,11 @@ const createJobSchema = z.object({
 export async function GET() {
   try {
     await connectDB();
-    const userId = await getUserIdFromRequest(); // ✅ FIXED: Added await
+    const userId = await getUserIdFromRequest(); 
 
     const jobs = await Job.find({ userId }).sort({ createdAt: -1 });
     return NextResponse.json({ jobs });
   } catch (err: any) {
-    console.error("❌ GET /api/jobs error:", err.message);
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 }
@@ -28,7 +27,7 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     await connectDB();
-    const userId = await getUserIdFromRequest(); // ✅ FIXED: Added await
+    const userId = await getUserIdFromRequest(); 
 
     const body = await req.json();
     const data = createJobSchema.parse(body);
@@ -41,7 +40,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ job }, { status: 201 });
   } catch (err: any) {
-    console.error("❌ POST /api/jobs error:", err.message);
     return NextResponse.json(
       { message: err?.message || "Failed to create job" },
       { status: 400 }

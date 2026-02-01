@@ -6,7 +6,6 @@ if (!JWT_SECRET) {
   throw new Error("JWT_SECRET is not defined in environment variables");
 }
 
-// Convert secret to Uint8Array for jose
 const secret = new TextEncoder().encode(JWT_SECRET);
 
 export async function signJWT(payload: object, expiresIn = "7d") {
@@ -32,7 +31,7 @@ export async function verifyJWT<T>(token: string): Promise<T> {
     const { payload } = await jwtVerify(token, secret);
     return payload as T;
   } catch (error: any) {
-    console.error("❌ JWT verification failed:", error.message);
+    console.error("JWT verification failed:", error.message);
     throw error;
   }
 }

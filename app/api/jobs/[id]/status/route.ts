@@ -14,9 +14,9 @@ export async function PATCH(
 ) {
   try {
     await connectDB();
-    const userId = await getUserIdFromRequest(); // ✅ FIXED: Added await
-    const { id } = await params; // ✅ FIXED: Await params
-
+    const userId = await getUserIdFromRequest();
+    const { id } = await params; 
+    
     const body = await req.json();
     const { status } = statusSchema.parse(body);
 
@@ -32,7 +32,6 @@ export async function PATCH(
 
     return NextResponse.json({ job });
   } catch (err: any) {
-    console.error("❌ PATCH /api/jobs/[id]/status error:", err.message);
     return NextResponse.json(
       { message: err?.message || "Status update failed" },
       { status: 400 }

@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
-  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +19,7 @@ export default function SignupPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
-        credentials: "include", // Important: ensures cookies are sent/received
+        credentials: "include",
       });
 
       const data = await res.json();
@@ -31,14 +29,9 @@ export default function SignupPage() {
         setLoading(false);
         return;
       }
-
-      // Signup successful
-      console.log("Signup successful, redirecting to dashboard...");
       
-      // Use window.location for a hard redirect to ensure cookie is processed
       window.location.href = "/dashboard";
     } catch (err) {
-      console.error("Signup error:", err);
       setError("An error occurred. Please try again.");
       setLoading(false);
     }

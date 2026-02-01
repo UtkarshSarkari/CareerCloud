@@ -25,7 +25,6 @@ export default function EditJobModal({
   const handleSubmit = async () => {
     setIsSubmitting(true);
 
-    // Filter out empty optional fields
     const payload: any = {
       companyName: form.companyName,
       jobTitle: form.jobTitle,
@@ -59,7 +58,6 @@ export default function EditJobModal({
         setIsSubmitting(false);
       }
     } catch (error) {
-      console.error("Update error:", error);
       alert("Failed to update job");
       setIsSubmitting(false);
     }

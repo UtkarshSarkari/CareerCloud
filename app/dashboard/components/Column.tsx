@@ -17,7 +17,6 @@ export default function Column({
 }) {
   const { setNodeRef } = useDroppable({ id: status });
 
-  // Define status colors
   const statusColors: Record<string, string> = {
     applied: "bg-blue-50 border-blue-200",
     interviewing: "bg-yellow-50 border-yellow-200",
@@ -44,7 +43,7 @@ export default function Column({
         </span>
       </div>
 
-      {/* Scrollable Job Cards */}
+      {/* Job Cards */}
       <div 
         ref={setNodeRef}
         className="space-y-3 overflow-y-auto flex-1 pr-1 custom-scrollbar"

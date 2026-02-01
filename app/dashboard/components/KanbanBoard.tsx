@@ -46,7 +46,7 @@ export default function KanbanBoard({
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: newStatus }),
-      credentials: "include", // Important: send cookies with request
+      credentials: "include", 
     });
   };
 

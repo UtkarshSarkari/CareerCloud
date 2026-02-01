@@ -19,8 +19,8 @@ export async function PUT(
 ) {
   try {
     await connectDB();
-    const userId = await getUserIdFromRequest(); // ✅ FIXED: Added await
-    const { id } = await params; // ✅ FIXED: Await params
+    const userId = await getUserIdFromRequest(); 
+    const { id } = await params; 
 
     const body = await req.json();
     const data = updateJobSchema.parse(body);
@@ -37,7 +37,6 @@ export async function PUT(
 
     return NextResponse.json({ job });
   } catch (err: any) {
-    console.error("❌ PUT /api/jobs/[id] error:", err.message);
     return NextResponse.json(
       { message: err?.message || "Update failed" },
       { status: 400 }
@@ -51,8 +50,8 @@ export async function DELETE(
 ) {
   try {
     await connectDB();
-    const userId = await getUserIdFromRequest(); // ✅ FIXED: Added await
-    const { id } = await params; // ✅ FIXED: Await params
+    const userId = await getUserIdFromRequest(); 
+    const { id } = await params; 
 
     const job = await Job.findOneAndDelete({ _id: id, userId });
 
@@ -62,7 +61,6 @@ export async function DELETE(
 
     return NextResponse.json({ message: "Deleted" });
   } catch (err: any) {
-    console.error("❌ DELETE /api/jobs/[id] error:", err.message);
     return NextResponse.json({ message: "Delete failed" }, { status: 400 });
   }
 }

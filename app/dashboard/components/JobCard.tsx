@@ -22,7 +22,7 @@ export default function JobCard({
   });
 
   const handleDelete = async (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent drag from triggering
+    e.stopPropagation();
     
     if (!confirm(`Delete job at ${job.companyName}?`)) {
       return;
@@ -37,21 +37,20 @@ export default function JobCard({
       });
 
       if (res.ok) {
-        onDelete(job._id); // Remove from UI
+        onDelete(job._id);
       } else {
         const data = await res.json();
         alert(`Failed to delete: ${data.message}`);
         setIsDeleting(false);
       }
     } catch (error) {
-      console.error("Delete error:", error);
       alert("Failed to delete job");
       setIsDeleting(false);
     }
   };
 
   const handleEdit = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent drag from triggering
+    e.stopPropagation(); 
     setShowEditModal(true);
   };
 
@@ -92,7 +91,7 @@ export default function JobCard({
           )}
         </div>
 
-        {/* Action buttons - NOT draggable */}
+        {/* Action buttons*/}
         <div className="flex gap-2 mt-2 border-t pt-2">
           <button
             onClick={handleEdit}

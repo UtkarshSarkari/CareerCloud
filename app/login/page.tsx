@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -20,7 +18,7 @@ export default function LoginPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
-        credentials: "include", // Important: ensures cookies are sent/received
+        credentials: "include", 
       });
 
       const data = await res.json();
@@ -30,14 +28,9 @@ export default function LoginPage() {
         setLoading(false);
         return;
       }
-
-      // Login successful
-      console.log("Login successful, redirecting to dashboard...");
       
-      // Use window.location for a hard redirect to ensure cookie is processed
       window.location.href = "/dashboard";
     } catch (err) {
-      console.error("Login error:", err);
       setError("An error occurred. Please try again.");
       setLoading(false);
     }
