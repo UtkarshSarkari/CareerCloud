@@ -48,13 +48,13 @@ export default function CreateJobModal({
     <>
       <button
         onClick={() => setOpen(true)}
-        className="bg-black text-white px-4 py-2 rounded"
+        className="bg-black text-white px-4 py-2 rounded cursor-pointer hover:bg-gray-800"
       >
         + Add Job
       </button>
 
       {open && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
           <div className="bg-white p-6 rounded w-full max-w-md space-y-3">
             <h2 className="text-xl font-bold">Add Job</h2>
 
@@ -93,10 +93,10 @@ export default function CreateJobModal({
             />
 
             <div className="flex justify-end gap-2">
-              <button onClick={() => setOpen(false)}>Cancel</button>
+              <button onClick={() => setOpen(false)} className="bg-gray-200 text-black px-4 py-2 rounded cursor-pointer hover:bg-gray-300">Cancel</button>
               <button
                 onClick={handleSubmit}
-                className="bg-black text-white px-4 py-2 rounded"
+                className="bg-black text-white px-4 py-2 rounded cursor-pointer hover:bg-gray-800"
               >
                 Save
               </button>

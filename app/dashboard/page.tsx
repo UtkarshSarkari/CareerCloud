@@ -21,7 +21,9 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <div className="p-6 bg-red-300 min-h-screen">
+    <div className="p-6
+    bg-[linear-gradient(to_right,#dbeafe,#fef9c3,#fee2e2,#dcfce7)]
+    min-h-[calc(100vh-2.5rem)]">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Job Tracker</h1>
@@ -34,7 +36,7 @@ export default function DashboardPage() {
               await fetch("/api/auth/logout", { method: "POST" });
               window.location.href = "/login";
             }}
-            className="text-sm text-gray-600 hover:text-black"
+            className="text-sm cursor-pointer bg-black text-white px-4 py-2.5 rounded-sm hover:bg-gray-800"
           >
             Logout
           </button>
