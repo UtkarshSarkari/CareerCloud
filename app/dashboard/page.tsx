@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import KanbanBoard, { Job } from "./components/KanbanBoard";
 import CreateJobModal from "./components/CreateJobModal";
 import Stats from "./components/Stats";
+import Image from "next/image";
+import logo from "@/public/briefcase.png";
 
 export default function DashboardPage() {
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -26,7 +28,10 @@ export default function DashboardPage() {
     min-h-[calc(100vh-2.5rem)]">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Job Tracker</h1>
+        <div className="flex items-center gap-2">
+          <Image src={logo} height={40} width={40} alt="logo" />
+          <h1 className="text-3xl font-bold">Career Cloud</h1>
+        </div>
 
         <div className="flex items-center gap-4">
           <CreateJobModal onJobCreated={fetchJobs} />
