@@ -43,7 +43,7 @@ export async function middleware(req: NextRequest) {
       ? NextResponse.redirect(new URL("/login", req.url))
       : NextResponse.next();
 
-    F
+    
     response.cookies.set("token", "", {
       httpOnly: true,
       path: "/",
