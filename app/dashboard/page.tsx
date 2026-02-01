@@ -6,6 +6,7 @@ import CreateJobModal from "./components/CreateJobModal";
 import Stats from "./components/Stats";
 import Image from "next/image";
 import logo from "@/public/briefcase.png";
+import AIJobAssistant from "./components/AiJobAssistant";
 
 export default function DashboardPage() {
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -51,6 +52,7 @@ export default function DashboardPage() {
       <Stats jobs={jobs} />
 
       <KanbanBoard jobs={jobs} setJobs={setJobs} onUpdate={fetchJobs} />
+      <AIJobAssistant jobs={jobs} />
     </div>
   );
 }
